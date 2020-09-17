@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	{% include 'page/cdn/head.html'%}
+	</head>
+
+	<body>
+	<header><!--네비게이션바-->
+         {% include 'page/component/navBar.html' %}
+    </header><!--네비게이션바-->
+	<content>
+		<div class='col-xd-12' style="text-align:center;"><h1 class='subtitle' >CODING SCHOOL</h1></div>
+
+		<div class="container" id="left_right_line">
+			<div class='col-xd-12 panel panel-default'></div>
+
+			<svg id = chart><!--D3Tree-->
+			</svg><!--D3Tree-->
+
+		</div>
+	</content>
+
+	<footer><!--풋터-->
+		<div class='col-xd-12' id="footer">
+		<h1>This Website is for everyone.
+		<p>
+		<small>Above Tree is created by d3.js</small>
+		</p>
+		</h1>
+		</div>
+	</footer><!--풋터-->
+
+	</body>
+</html>
+
+<style>
+	#footer{
+		padding-top:100px;
+		text-align:center;
+		font-family: 'Open Sans';
+	}
+	.subtitle
+	{
+		font-family: 'Open Sans';
+	}
+	@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+</style>
+
+{% include 'page/cdn/index_cdn.html' %}
+{% include 'page/cdn/D3Tree_cdn.html' %}

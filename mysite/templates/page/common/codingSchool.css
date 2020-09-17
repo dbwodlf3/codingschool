@@ -1,0 +1,13 @@
+.boardMeta{
+	border-bottom: 1px solid #ddd;
+	background-color: AliceBlue;
+	margin-bottom: 30px;
+	}
+
+.boardMetaHead{
+	border-left: 5px solid black;
+}
+
+.margineBottom{
+	margin-bottom:25px;
+}

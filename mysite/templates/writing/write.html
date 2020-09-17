@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{% include 'page/cdn/head.html'%}
+</head>
+
+<body>
+		<header><!--네비게이션바-->
+			{% include 'page/component/navBar.html' %}
+		</header><!--네비게이션바-->
+<!--#####################################################################################-->
+<!--#####################################################################################-->
+<!--#####################################################################################-->
+	<div class='container'>
+		<div class='col-md-12'>
+			<form name="write" action='{% url 'writing:write' %} ' method="POST">{% csrf_token %}
+				{{ form.media }}
+				{{ form.as_p }}
+			<input type="submit" value="게시글 작성"/>
+			</form>
+		</div>
+	</div>
+<body>
+</html>
+
+{% include 'page/cdn/index_cdn.html'%}

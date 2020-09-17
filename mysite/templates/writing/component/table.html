@@ -1,0 +1,25 @@
+<div class='col-md-12'>
+	<table class="table table-bordered table-hover">
+		<thead>
+		<tr>
+			<th class="col-xs-1">번호</th>
+			<th class="col-xs-5">제목</th>
+			<th class="col-xs-2">작성자</th>
+			<th class="col-xs-3">날짜</th>
+			<th class="col-xs-1">조회수</th>
+		</tr>
+
+		<tbody>
+		{% for BoardPost in BoardPost %}
+		<tr>
+			<td>{{BoardPost.id}}</td>
+			<td> <a href='{% url 'writing:read' BoardPost.boardTag BoardPost.id %}'> {{BoardPost.title}}</a> </td>
+			<td>{{BoardPost.writer_nick_name}}</td>
+			<td>{{BoardPost.writedDate}}</td>
+			<td>{{BoardPost.hits}}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</thead>
+	</table>
+</div>

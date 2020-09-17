@@ -1,0 +1,55 @@
+<div class='container text-center'>
+	<div class='col-xs-6 col-xs-offset-3'>
+		<form class='well' method='post' action='{% url 'userAccount:sign' %}'>
+			{% csrf_token %}
+			<div class='form-group'>	
+			<input type='text' name='username' placeholder='Username' required>
+			</div>
+
+			<div class='form-group'>	
+			<input type='text' name='nick_name' placeholder='Nickname' maxlength='15' required>
+			</div>
+			
+			<div class='form-group'>
+			<input type='password' name='password' placeholder='Password' id = 'password' required>
+			</div>
+
+			<div class='form-group'>
+			<input type='password' name='check_password' placeholder='Repeat Password' id = 'confirm_password' required>
+			</div>
+
+			<div class='form-group'>
+			<input type='email' name='email' placeholder='Email' required>
+			</div>
+			
+			<div>
+			<input type='submit' class='btn btn-default' value='Sign Up'>
+			</div>
+			
+			</form>
+	</div>
+</div>
+
+<style>
+input{
+	padding:5px;
+}
+</style>
+
+<script>
+
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("비밀번호가 다릅니다. 확인 해 주세요.");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+</script>

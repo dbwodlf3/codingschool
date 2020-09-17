@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{% include 'page/cdn/head.html'%}
+</head>
+
+<body>
+		<header><!--네비게이션바-->
+			{% include 'page/component/navBar.html' %}
+		</header><!--네비게이션바-->
+<!--#####################################################################################-->
+<!--#####################################################################################-->
+<!--#####################################################################################-->
+<div class='container' >
+		
+    <div class="panel panel-default">
+		<div class="panel-heading margineBottom">제목: {{BoardPost.title}}</div>
+
+		<div class="panel-body">
+			{% autoescape off %}{{BoardPost.content}}{% endautoescape %}
+			<div class= 'text-right'>
+			{% if BoardPost.writer == user.username %}
+			<form method='POST' action='{% url 'writing:delete' %}'>
+			{% csrf_token %}
+			<input type="submit" class="btn btn-info" value="삭제">
+			<input type='hidden' name='BoardPostId' value={{BoardPost.id}}>
+			<input type='hidden' name="BoardPostBoardTag" value={{BoardPost.boardTag}}>
+			</form>
+			{% endif %}
+			</div>
+		</div>
+
+		<div class="panel-footer">작성자: {{BoardPost.nick_name}}
+		<p>조회수: {{BoardPost.hits}}</p>
+		</div>
+    </div>
+	<!-- 여기까지가 게시물.-->
+
+	<div class="form-group">
+		<label for="comment">Comment:</label>
+		<textarea class="form-control" rows="5" id="comment"></textarea>
+		<div class='text-right'>
+		코멘트 작성
+		</div>
+	</div>
+</div>
+<body>
+</html>
+{% include 'page/cdn/index_cdn.html'%}
+
+<style>
+{% include 'page/common/codingSchool.css' %}
+</style>

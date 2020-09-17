@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+{% include 'page/cdn/head.html'%}
+</head>
+
+	<body>
+		<header><!--네비게이션바-->
+			{% include 'page/component/navBar.html' %}
+		</header><!--네비게이션바-->
+
+
+
+		<div class='container'>
+			<div class="page-header">
+			<h1>&nbsp&nbsp게시판</h1>
+			</div>
+
+			{% include 'writing/component/table.html'%}
+
+		
+
+		<div class='text-center'>
+			<form action='{% url 'writing:pageControl' %}' method="POST">
+			{% csrf_token %}
+			<input type="text" name="pageNumber" size=1 value={{pageNumber}}>
+			<label>총 페이지수: {{pageCount}} <input type="hidden" name="Board" value={{Board}}></label>
+			</form>
+			<a id = "pageNationLeft" href="../{{pageNumber}}-1"><span class="glyphicon glyphicon-menu-left"></span></a>
+			<a id = pageNationRight href="#"><span class="glyphicon glyphicon-menu-right" size="100"></span></a>
+		</div>
+			{% if user.is_active %}
+			<div class='text-right'>
+			 <a href='{%url 'writing:write' %}' class="btn btn-default" role="button">글 쓰기</a>
+			</div>
+			{% endif %}
+
+		</div>
+	</body>
+</html>
+
+{% include 'page/cdn/index_cdn.html'%}
+
+<style>
+ a {color: inherit;}
+</style>
+
+<script>
+var pageNumber = {{pageNumber}};
+document.getElementById("pageNationLeft").setAttribute("href", "../"+(pageNumber-1));
+document.getElementById("pageNationRight").setAttribute("href", "../"+(pageNumber+1));
+</script>
